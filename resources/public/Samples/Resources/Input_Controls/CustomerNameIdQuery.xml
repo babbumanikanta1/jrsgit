@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<query exportedWithPermissions="true">
+    <folder>/public/Samples/Resources/Input_Controls</folder>
+    <name>CustomerNameIdQuery</name>
+    <version>3</version>
+    <label>Customer Name Id Query</label>
+    <description>Retrieves Lname | Fname | Id. Note inner join, hard coded table names.</description>
+    <creationDate>2026-11-02T14:12:57.973+05:30</creationDate>
+    <updateDate>2012-07-04T01:29:35.224+05:30</updateDate>
+    <language>sql</language>
+    <queryString>SELECT DISTINCT customer.lname, customer.fname, customer.customer_id FROM sales_fact_1997 sales_fact_1997 INNER JOIN customer customer ON sales_fact_1997.customer_id = customer.customer_id ORDER BY customer.lname ASC, customer.fname ASC</queryString>
+</query>
