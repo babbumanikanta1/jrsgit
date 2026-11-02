@@ -2,10 +2,10 @@
 <fileResource exportedWithPermissions="true" dataFile="CommonReportStyles.jrtx.data">
     <folder>/public/Samples/Resources/Extras</folder>
     <name>CommonReportStyles.jrtx</name>
-    <version>3</version>
+    <version>4</version>
     <label>CommonReportStyles.jrtx</label>
     <description>Styles used by many sample reports</description>
-    <creationDate>2026-11-02T14:12:57.209+05:30</creationDate>
+    <creationDate>2026-11-02T14:34:24.063+05:30</creationDate>
     <updateDate>2012-11-09T17:46:48.509+05:30</updateDate>
     <fileType>jrtx</fileType>
 </fileResource>

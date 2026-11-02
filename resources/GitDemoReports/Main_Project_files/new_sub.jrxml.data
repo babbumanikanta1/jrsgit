@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 9.0.0.final using JasperReports Library version 6.21.0-4f56c4f36cd19e17675219a9ac4692d5f0f13b06  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="new_sub" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="3754842b-f39c-4a1d-85a3-6d5005f81578">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Foodmart Data Source"/>
+	<property name="ireport.jasperserver.url" value="http://localhost:8080/jasperserver-pro/"/>
+	<property name="ireport.jasperserver.user" value="superuser"/>
+	<property name="ireport.jasperserver.report.resource" value="/public/project_1/new_sub_files/main_jrxml"/>
+	<property name="ireport.jasperserver.reportUnit" value="/public/project_1/new_sub"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<subDataset name="for_graph" uuid="62990ae5-b887-484d-b365-212753510174">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Foodmart Data Source"/>
+		<queryString language="SQL">
+			<![CDATA[SELECT
+fullname,
+CAST(REPLACE(REPLACE(SPLIT_PART(yearly_income,'-',1),'$',''),'K','') AS INTEGER) AS income
+FROM customer
+limit 3]]>
+		</queryString>
+		<field name="fullname" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="fullname"/>
+			<property name="com.jaspersoft.studio.field.label" value="fullname"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="customer"/>
+		</field>
+		<field name="income" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.name" value="income"/>
+			<property name="com.jaspersoft.studio.field.label" value="income"/>
+		</field>
+	</subDataset>
+	<subDataset name="for_map" uuid="7b997937-16be-45f5-9217-9b806425b010">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Foodmart Data Source"/>
+		<queryString language="SQL">
+			<![CDATA[SELECT
+    COUNT(*) AS total_customers,
+    COUNT(CASE WHEN marital_status = 'M' THEN 1 END) AS married_customer,
+    COUNT(CASE WHEN gender = 'M' THEN 1 END) AS male_customer,
+    COUNT(CASE WHEN gender = 'F' THEN 1 END) AS female_customer
+FROM customer]]>
+		</queryString>
+		<field name="total_customers" class="java.lang.Long">
+			<property name="com.jaspersoft.studio.field.name" value="total_customers"/>
+			<property name="com.jaspersoft.studio.field.label" value="total_customers"/>
+		</field>
+		<field name="married_customer" class="java.lang.Long">
+			<property name="com.jaspersoft.studio.field.name" value="married_customer"/>
+			<property name="com.jaspersoft.studio.field.label" value="married_customer"/>
+		</field>
+		<field name="male_customer" class="java.lang.Long">
+			<property name="com.jaspersoft.studio.field.name" value="male_customer"/>
+			<property name="com.jaspersoft.studio.field.label" value="male_customer"/>
+		</field>
+		<field name="female_customer" class="java.lang.Long">
+			<property name="com.jaspersoft.studio.field.name" value="female_customer"/>
+			<property name="com.jaspersoft.studio.field.label" value="female_customer"/>
+		</field>
+	</subDataset>
+	<parameter name="cust_name" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[$F{fullname}]]></defaultValueExpression>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+fullname,
+CAST(REPLACE(REPLACE(SPLIT_PART(yearly_income,'-',1),'$',''),'K','') AS INTEGER) AS income
+FROM customer
+limit 3]]>
+	</queryString>
+	<field name="fullname" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="fullname"/>
+		<property name="com.jaspersoft.studio.field.label" value="fullname"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="customer"/>
+	</field>
+	<field name="income" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="income"/>
+		<property name="com.jaspersoft.studio.field.label" value="income"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="260" splitType="Stretch">
+			<componentElement>
+				<reportElement mode="Opaque" x="0" y="20" width="210" height="240" forecolor="#080707" backcolor="#A5CCC9" uuid="dbaa2e21-4c43-4873-9900-e27d11c504a9"/>
+				<hc:chart xmlns:hc="http://jaspersoft.com/highcharts" xsi:schemaLocation="http://jaspersoft.com/highcharts http://jaspersoft.com/schema/highcharts.xsd" type="Bar">
+					<hc:chartSetting name="default">
+						<hc:chartProperty name="title.text"/>
+						<hc:chartProperty name="credits.enabled" value="false"/>
+						<hc:chartProperty name="credits.href" value=""/>
+						<hc:chartProperty name="credits.text" value=""/>
+						<hc:chartProperty name="yAxis.title.text" value=""/>
+						<hc:chartProperty name="chart.zoomType" value="xy"/>
+						<hc:chartProperty name="chart.backgroundColor" value="#B8DBE3"/>
+						<hc:chartProperty name="chart.selectionMarkerFill" value="#E3DD2B"/>
+						<hc:chartProperty name="title.style.color" value="#3C3FC9"/>
+						<hc:chartProperty name="title.style.fontSize_measureUnit" value="{&quot;key&quot;:&quot;px&quot;,&quot;name&quot;:&quot;px&quot;}"/>
+						<hc:chartProperty name="title.style.fontSize" value="0px"/>
+						<hc:chartProperty name="colors_customSimpleMode" value="true"/>
+						<hc:chartProperty name="colors">
+							<hc:propertyExpression><![CDATA[Arrays.asList("#7cb5ec","#434348","#90ED7D","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1","#FFFFFF")]]></hc:propertyExpression>
+						</hc:chartProperty>
+					</hc:chartSetting>
+					<multiAxisData>
+						<multiAxisDataset>
+							<dataset>
+								<datasetRun subDataset="for_graph" uuid="b264af61-807a-4e0a-ad52-3aa25df5a6a6"/>
+							</dataset>
+						</multiAxisDataset>
+						<dataAxis axis="Rows">
+							<axisLevel name="Customer">
+								<labelExpression><![CDATA[]]></labelExpression>
+								<axisLevelBucket class="java.lang.Comparable">
+									<bucketExpression><![CDATA[$F{fullname}]]></bucketExpression>
+									<labelExpression><![CDATA[$F{fullname}]]></labelExpression>
+								</axisLevelBucket>
+							</axisLevel>
+						</dataAxis>
+						<dataAxis axis="Columns"/>
+						<multiAxisMeasure name="Income" class="java.lang.Number" calculation="Nothing">
+							<labelExpression><![CDATA["income"]]></labelExpression>
+							<valueExpression><![CDATA[$F{income}]]></valueExpression>
+						</multiAxisMeasure>
+					</multiAxisData>
+					<hc:series name="Income">
+						<hc:contributor name="SeriesItemHyperlink">
+							<hc:contributorProperty name="hyperlinkTarget" valueType="Constant" value="Self"/>
+							<hc:contributorProperty name="hyperlinkType" valueType="Constant" value="ReportExecution"/>
+							<hc:contributorProperty name="cust_name" valueType="Expression">
+								<hc:valueExpression><![CDATA[$F{fullname}]]></hc:valueExpression>
+							</hc:contributorProperty>
+							<hc:contributorProperty name="_report" valueType="Expression">
+								<hc:valueExpression><![CDATA[$F{fullname}.trim().equals("Sheri Nowmer")
+    ? "/public/project_1/customer_1"
+    : ($F{fullname}.trim().equals("Derrick Whelply")
+        ? "/public/project_1/customer_2"
+        : ($F{fullname}.trim().equals("Jeanne Derry")
+            ? "/public/project_1/customer_3"
+            : "/public/project_1/customer_1"))]]></hc:valueExpression>
+							</hc:contributorProperty>
+						</hc:contributor>
+					</hc:series>
+				</hc:chart>
+			</componentElement>
+		</band>
+	</summary>
+</jasperReport>

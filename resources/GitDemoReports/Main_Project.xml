@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reportUnit exportedWithPermissions="true">
+    <folder>/GitDemoReports</folder>
+    <name>Main_Project</name>
+    <version>0</version>
+    <label>Assignment</label>
+    <description>Using multiple sub reports and hyperlink to generate dynamic report which includes top income earning customers data, country wise customer distribution also have a tabel which links to respective country maps using hyperlinks.</description>
+    <creationDate>2026-11-02T15:22:17.073+05:30</creationDate>
+    <updateDate>2026-03-09T18:27:03.901+05:30</updateDate>
+    <mainReport>
+        <localResource
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            exportedWithPermissions="false" dataFile="main_jrxml.data" xsi:type="fileResource">
+            <folder>/GitDemoReports/Main_Project_files</folder>
+            <name>main_jrxml</name>
+            <version>0</version>
+            <label>Main jrxml</label>
+            <creationDate>2026-11-02T15:22:17.073+05:30</creationDate>
+            <updateDate>2026-11-02T15:22:17.073+05:30</updateDate>
+            <fileType>jrxml</fileType>
+        </localResource>
+    </mainReport>
+    <dataSource>
+        <uri>/public/Samples/Data_Sources/FoodmartDataSourceJNDI</uri>
+    </dataSource>
+    <resource>
+        <localResource
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            exportedWithPermissions="false"
+            dataFile="customer_pie.jrxml.data" xsi:type="fileResource">
+            <folder>/GitDemoReports/Main_Project_files</folder>
+            <name>customer_pie.jrxml</name>
+            <version>0</version>
+            <label>customer_pie.jrxml</label>
+            <creationDate>2026-11-02T15:22:17.073+05:30</creationDate>
+            <updateDate>2026-11-02T15:22:17.073+05:30</updateDate>
+            <fileType>jrxml</fileType>
+        </localResource>
+    </resource>
+    <resource>
+        <localResource
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            exportedWithPermissions="false"
+            dataFile="new_sub.jrxml.data" xsi:type="fileResource">
+            <folder>/GitDemoReports/Main_Project_files</folder>
+            <name>new_sub.jrxml</name>
+            <version>0</version>
+            <label>new_sub.jrxml</label>
+            <creationDate>2026-11-02T15:22:17.073+05:30</creationDate>
+            <updateDate>2026-11-02T15:22:17.073+05:30</updateDate>
+            <fileType>jrxml</fileType>
+        </localResource>
+    </resource>
+    <resource>
+        <localResource
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            exportedWithPermissions="false"
+            dataFile="countrywise_data.jrxml.data" xsi:type="fileResource">
+            <folder>/GitDemoReports/Main_Project_files</folder>
+            <name>countrywise_data.jrxml</name>
+            <version>0</version>
+            <label>countrywise_data.jrxml</label>
+            <creationDate>2026-11-02T15:22:17.073+05:30</creationDate>
+            <updateDate>2026-11-02T15:22:17.073+05:30</updateDate>
+            <fileType>jrxml</fileType>
+        </localResource>
+    </resource>
+    <alwaysPromptControls>true</alwaysPromptControls>
+    <controlsLayout>1</controlsLayout>
+</reportUnit>

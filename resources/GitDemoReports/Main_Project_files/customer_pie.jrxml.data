@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 9.0.0.final using JasperReports Library version 6.21.0-4f56c4f36cd19e17675219a9ac4692d5f0f13b06  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="customer_pie" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="626ddc44-a71d-4b50-a79f-a753e955a1f2">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Foodmart Data Source"/>
+	<property name="ireport.jasperserver.url" value="http://localhost:8080/jasperserver-pro/"/>
+	<property name="ireport.jasperserver.user" value="superuser"/>
+	<property name="ireport.jasperserver.report.resource" value="/public/project_1/customer_pie_files/main_jrxml"/>
+	<property name="ireport.jasperserver.reportUnit" value="/public/project_1/customer_pie"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT country, COUNT(*) AS total_customers
+FROM customer
+WHERE country IN ('USA','Canada','Mexico')
+GROUP BY country;]]>
+	</queryString>
+	<field name="country" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="country"/>
+		<property name="com.jaspersoft.studio.field.label" value="country"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="customer"/>
+	</field>
+	<field name="total_customers" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="total_customers"/>
+		<property name="com.jaspersoft.studio.field.label" value="total_customers"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="250" splitType="Stretch">
+			<pieChart>
+				<chart evaluationTime="Report">
+					<reportElement mode="Opaque" x="0" y="50" width="270" height="200" forecolor="#000A0D" backcolor="#EBCFCE" uuid="c24bc540-ff82-460b-a724-b8a37f17e1b4"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<keyExpression><![CDATA[$F{country}]]></keyExpression>
+					<valueExpression><![CDATA[$F{total_customers}]]></valueExpression>
+					<labelExpression><![CDATA[$F{total_customers}+""]]></labelExpression>
+				</pieDataset>
+				<piePlot>
+					<plot/>
+					<itemLabel/>
+				</piePlot>
+			</pieChart>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="270" height="50" forecolor="#070808" backcolor="#DB93D4" uuid="c4b606ed-5ca7-40af-a59d-e91f17b7bf7a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Black" size="18"/>
+				</textElement>
+				<text><![CDATA[Customer Distribution]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

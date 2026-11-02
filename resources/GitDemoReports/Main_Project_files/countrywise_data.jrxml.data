@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 9.0.0.final using JasperReports Library version 6.21.0-4f56c4f36cd19e17675219a9ac4692d5f0f13b06  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="countrywise_data" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fa46c2ba-3c1f-4ee3-aa51-9e62af9de078">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Foodmart Data Source"/>
+	<property name="ireport.jasperserver.url" value="http://localhost:8080/jasperserver-pro/"/>
+	<property name="ireport.jasperserver.user" value="superuser"/>
+	<property name="ireport.jasperserver.report.resource" value="/public/project_1/countrywise_data_files/main_jrxml"/>
+	<property name="ireport.jasperserver.reportUnit" value="/public/project_1/countrywise_data"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT 
+    country,
+    COUNT(*) AS total_customers,
+    SUM(CASE WHEN gender = 'M' THEN 1 ELSE 0 END) AS total_male,
+    SUM(CASE WHEN gender = 'F' THEN 1 ELSE 0 END) AS total_female
+FROM customer
+GROUP BY country;]]>
+	</queryString>
+	<field name="country" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="country"/>
+		<property name="com.jaspersoft.studio.field.label" value="country"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="customer"/>
+	</field>
+	<field name="total_customers" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="total_customers"/>
+		<property name="com.jaspersoft.studio.field.label" value="total_customers"/>
+	</field>
+	<field name="total_male" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="total_male"/>
+		<property name="com.jaspersoft.studio.field.label" value="total_male"/>
+	</field>
+	<field name="total_female" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="total_female"/>
+		<property name="com.jaspersoft.studio.field.label" value="total_female"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="79" backcolor="#B8E2E6" uuid="cc5cb4ae-ff5a-47b0-b001-57b9ef5245ab"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Black" size="19"/>
+				</textElement>
+				<text><![CDATA[COUNTRY WISE CUSTOMER DATA ]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="141" height="30" backcolor="#C4A1E6" uuid="dd5df3be-cea8-46ff-a344-d5f215f33084">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0298f173-e561-4257-ba0e-1e36196ad8f7"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Country]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="141" y="0" width="138" height="30" backcolor="#C4A1E6" uuid="39d47c8f-a257-4708-909f-81d65279d9e9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="328bc0b5-6dbe-461a-b0c4-d968858b2f90"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Customers]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="279" y="0" width="138" height="30" backcolor="#C4A1E6" uuid="1723f92a-1b05-4810-bac8-b6c1eb3bb1d9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="448028b0-7c98-44e8-bdb4-7baafb1ff250"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Male]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="417" y="0" width="138" height="30" backcolor="#C4A1E6" uuid="95f9402b-6414-49da-88eb-7d61a3b7e5c5">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f3fbe141-4c03-48bb-818f-309373ac5ebe"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total_Female]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField hyperlinkType="Reference" hyperlinkTarget="Blank">
+				<reportElement mode="Opaque" x="0" y="0" width="141" height="30" forecolor="#B03350" backcolor="#B4DEBF" uuid="5f8374b8-9402-4fab-8153-e33b2be6d167">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0298f173-e561-4257-ba0e-1e36196ad8f7"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="false" isItalic="false" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{country}]]></textFieldExpression>
+				<hyperlinkReferenceExpression><![CDATA[$F{country}.equals("USA") ? "https://www.google.com/maps/place/United+States/@40.1925878,-96.4639776,4.25z/data=!4m6!3m5!1s0x54eab584e432360b:0x1c3bb99243deb742!8m2!3d38.7945952!4d-106.5348379!16zL20vMDljN3cw?entry=ttu&g_ep=EgoyMDI2MDMwNC4xIKXMDSoASAFQAw%3D%3D" :
+$F{country}.equals("Canada") ? "https://www.google.com/maps/place/Canada/@56,-96,4z/data=!3m1!4b1!4m6!3m5!1s0x4b0d03d337cc6ad9:0x9968b72aa2438fa5!8m2!3d56.130366!4d-106.346771!16zL20vMGQwNjBn?entry=ttu&g_ep=EgoyMDI2MDMwNC4xIKXMDSoASAFQAw%3D%3D" :
+$F{country}.equals("Mexico") ? "https://www.google.com/maps/place/Mexico/@23.2109731,-113.2848586,5z/data=!3m1!4b1!4m6!3m5!1s0x84043a3b88685353:0xed64b4be6b099811!8m2!3d23.634501!4d-102.552784!16zL20vMGI5MF9y?entry=ttu&g_ep=EgoyMDI2MDMwNC4xIKXMDSoASAFQAw%3D%3D"
+: "https://www.google.com/maps/place/North+America/@29.1289391,-153.6253071,3z/data=!3m1!4b1!4m6!3m5!1s0x52b30b71698e729d:0x131328839761a382!8m2!3d54.5259614!4d-105.2551187!16zL20vMDU5ZzQ?entry=ttu&g_ep=EgoyMDI2MDMwNC4xIKXMDSoASAFQAw%3D%3D"]]></hyperlinkReferenceExpression>
+				<hyperlinkTooltipExpression><![CDATA["click to view country wise map"]]></hyperlinkTooltipExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="141" y="0" width="138" height="30" forecolor="#B03350" backcolor="#B4DEBF" uuid="7e4936b8-e596-4e43-bb2f-710071c07c48">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="328bc0b5-6dbe-461a-b0c4-d968858b2f90"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{total_customers}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="279" y="0" width="138" height="30" forecolor="#B03350" backcolor="#B4DEBF" uuid="31e496fd-4400-44e6-b718-bbdfd6827364">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="448028b0-7c98-44e8-bdb4-7baafb1ff250"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{total_male}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="417" y="0" width="138" height="30" forecolor="#B03350" backcolor="#B4DEBF" uuid="4e39028e-0b00-48d1-81c1-0610a0f8a6fc">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f3fbe141-4c03-48bb-818f-309373ac5ebe"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{total_female}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

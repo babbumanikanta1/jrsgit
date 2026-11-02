@@ -4,9 +4,12 @@
     <name>GitDemoReports</name>
     <label>GitDemoReports</label>
     <description></description>
-    <creationDate>2026-11-02T14:24:38.224+05:30</creationDate>
+    <creationDate>2026-11-02T14:34:23.959+05:30</creationDate>
     <updateDate>2026-11-02T14:24:38.224+05:30</updateDate>
     <resource>08.UnitSalesDetailReport</resource>
     <resource>9.CustomerDetailReport</resource>
+    <resource>customer</resource>
+    <resource>Main_Project</resource>
     <resource>RevenueDetailReport</resource>
+    <resource>Test_Pie</resource>
 </folder>
